@@ -245,7 +245,11 @@ const G = `
 /* ── Reusable Logo ── */
 function Logo({ size = 38 }) {
   return (
-    <div className="ps-logo" style={{ width: size, height: size, fontSize: size * 0.5 }}>🏁</div>
+    <img 
+      src={process.env.PUBLIC_URL + '/logo.jpeg'} 
+      alt="Pitstop" 
+      style={{ width: size, height: size, borderRadius: '25%', objectFit: 'cover' }} 
+    />
   );
 }
 
@@ -603,9 +607,22 @@ export default function App() {
         </div>
 
         {/* ── NAVBAR ── */}
+       {/* ── NAVBAR ── */}
         <nav style={{ position:'sticky', top:0, zIndex:300, background:'rgba(8,8,18,.9)', backdropFilter:'blur(20px)', borderBottom:'1px solid rgba(255,255,255,.06)', padding:'0 5%', display:'flex', alignItems:'center', justifyContent:'space-between', height:'66px' }}>
           <div style={{ display:'flex', alignItems:'center', gap:'11px' }}>
-            <Logo size={40} />
+            
+            {/* ADDED: Your Pitstop Logo */}
+            <img 
+              src={process.env.PUBLIC_URL + '/logo.jpeg'} 
+              alt="Pitstop Logo" 
+              style={{ 
+                width: '42px', 
+                height: '42px', 
+                borderRadius: '12px', 
+                boxShadow: '0 4px 15px rgba(109,40,217,0.4)' 
+              }} 
+            />
+
             <div>
               <div style={{ fontFamily:"'Syne', sans-serif", fontWeight:800, fontSize:'20px', color:'#f0f0ff', letterSpacing:'-0.5px', lineHeight:1.1 }}>PitStop</div>
               <div style={{ fontSize:'9px', color:'rgba(255,255,255,.3)', letterSpacing:'2px', textTransform:'uppercase' }}>Road Intelligence</div>
@@ -614,9 +631,9 @@ export default function App() {
 
           <div style={{ display:'flex', gap:'2px' }}>
             {[
-              { label:'Home',         fn: null },
-              { label:'Driver',       fn: () => goDriver('map') },
-              { label:'Authority',    fn: () => goAuthority('overview') },
+              { label:'Home',        fn: null },
+              { label:'Driver',        fn: () => goDriver('map') },
+              { label:'Authority',     fn: () => goAuthority('overview') },
             ].map(i => (
               <span key={i.label} className={`nav-link${i.label==='Home'?' active':''}`} onClick={i.fn||undefined}>{i.label}</span>
             ))}
