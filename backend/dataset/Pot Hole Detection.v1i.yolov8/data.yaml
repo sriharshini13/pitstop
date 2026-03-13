@@ -1,0 +1,6 @@
+train: E:/TDP/pothole-system/backend/dataset/Pot Hole Detection.v1i.yolov8/train/images
+val: E:/TDP/pothole-system/backend/dataset/Pot Hole Detection.v1i.yolov8/valid/images
+test: E:/TDP/pothole-system/backend/dataset/Pot Hole Detection.v1i.yolov8/test/images
+
+nc: 1
+names: ['pothole']
